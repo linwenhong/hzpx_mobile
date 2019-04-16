@@ -10,6 +10,15 @@ Vue.use(YDUI);
 
 Vue.config.productionTip = false
 
+import FilterService from '@/assets/filter'
+// defined filter for global
+for (let transform in FilterService) {
+  Vue.filter(transform, FilterService[transform])
+}
+// global variable or method
+Vue.prototype.$Service = require('@/assets/service/service.js').default
+Vue.prototype.$Config = require('@/assets/config.js')
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
