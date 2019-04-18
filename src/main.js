@@ -20,6 +20,7 @@ for (let transform in FilterService) {
 // global variable or method
 Vue.prototype.$Service = require('@/assets/service/service.js').default
 Vue.prototype.$Config = require('@/assets/config.js')
+Vue.prototype.$Cache = require('@/assets/cache.js').default
 
 /* eslint-disable no-new */
 new Vue({

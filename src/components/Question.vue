@@ -70,7 +70,8 @@ export default {
     }
   },
   created () {
-
+    console.log(this.$Cache.get('user', 1))
+    console.log(this.$Cache.get('test'))
   }
 }
 </script>
