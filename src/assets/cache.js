@@ -1,23 +1,27 @@
-function setCache (name, data) {
-  console.log(typeof data)
-  localStorage.setItem(name, JSON.stringify(data))
+function setCache (name, data, convert = false) {
+  data = convert ? JSON.stringify(data) : data;
+  localStorage.setItem(name, data)
 }
 
-function getCache (name) {
-  return JSON.parse(localStorage.getItem(name))
+function getCache (name, convert = false) {
+  const data = localStorage.getItem(name);
+  return convert ? JSON.parse(data) : data
 }
 
-function setSessionStorage (name, data) {
-  sessionStorage.setItem(name, JSON.stringify(data))
+function set (name, data, convert = false) {
+  data = convert ? JSON.stringify(data) : data;
+  sessionStorage.setItem(name, data)
 }
 
-function getSessionStorage (name) {
-  return JSON.parse(sessionStorage.getItem(name))
+function get (name, convert = false) {
+  const data = sessionStorage.getItem(name);
+  return convert ? JSON.parse(data) : data
 }
 
 export default {
   setCache,
   getCache,
-  setSessionStorage,
-  getSessionStorage
+  set,
+  get
 }
+
