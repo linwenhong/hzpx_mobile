@@ -18,13 +18,18 @@ function createService (url) {
 }
 /******************************/
 const getStudentDetails = (request) => { return post('client_index', request) }; // 获取学生用户信息
-const getTopics = (request) => { return get('get_topics', request) }; // 获取练习题
-const doTopic = (request) => { return get('do_topic', request) }; // 答题记录
+const getTopics = (request) => { return post('get_topics', request) }; // 获取练习题
+const doTopic = (request) => { return post('do_topic', request) }; // 答题
+const getWrongTopics = (request) => { return get('wrong_log', request) }; // 获取练习题(错题)
+const doWrongTopic = (request) => { return post('update_wrong_log', request) }; // 答题(错题)
+
 /******************************/
 
 
 export default {
   getStudentDetails,
   getTopics,
-  doTopic
+  doTopic,
+  getWrongTopics,
+  doWrongTopic,
 }
