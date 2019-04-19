@@ -18,10 +18,31 @@ function get (name, convert = false) {
   return convert ? JSON.parse(data) : data
 }
 
+// isPermanent 是否永久缓存
+function clear (names = [], isPermanent = false) {
+  names.map(name => {
+    if (isPermanent) {
+      localStorage.removeItem(name)
+    } else {
+      sessionStorage.removeItem(name)
+    }
+  })
+}
+
+function clearAll (isPermanent = false) {
+  if (isPermanent) {
+    localStorage.clear()
+  } else {
+    sessionStorage.clear()
+  }
+}
+
 export default {
   setCache,
   getCache,
   set,
-  get
+  get,
+  clear,
+  clearAll
 }
 
