@@ -4,5 +4,7 @@ export const COMPONENTS = {
   Notice: resolve => require(['@/components/home/Notice'], resolve),
   Exercises: resolve => require(['@/components/home/Exercises'], resolve),
   Personal: resolve => require(['@/components/home/Personal'], resolve),
-  Login: resolve => require(['@/components/home/Login'], resolve)
+  Login: resolve => require(['@/components/home/Login'], resolve),
+  UnitChange: resolve => require(['@/components/unitChange/UnitChange'], resolve),
+  UnitForm: resolve => require(['@/components/unitChange/UnitForm'], resolve),
 }

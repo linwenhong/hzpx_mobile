@@ -17,7 +17,7 @@ function createService (url) {
   }
 }
 /******************************/
-const getStudentDetails = (request) => { return get('client_index', request) }; // 获取学生用户信息
+const getStudentDetails = (request) => { return post('client_index', request) }; // 获取学生用户信息
 const getTopics = (request) => { return get('get_topics', request) }; // 获取练习题
 const doTopic = (request) => { return get('do_topic', request) }; // 答题记录
 /******************************/
