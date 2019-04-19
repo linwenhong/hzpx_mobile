@@ -19,7 +19,7 @@
           title="登录"
           link="/home/login"
           :active="$route.path === '/home/login'"
-          v-if="!login"
+          v-if="!$Cache.getCache('login')"
         >
           <yd-icon name="phone1" slot="icon"></yd-icon>
         </yd-tabbar-item>
@@ -51,14 +51,13 @@
 </template>
 
 <script>
-import cache from "@/assets/cache";
 
 export default {
   name: "home",
   data() {
     return {
       activeId: 0,
-      login: false,
+      login:  this.$Cache.getCache('login'),
       routerList: [
         {
           id: 0,
@@ -81,15 +80,13 @@ export default {
       ]
     };
   },
-  methods: {},
-  mounted() {
-    let token = cache.getCache("USER_TOKEN");
-    if (token) {
-      this.login = true;
-    } else {
-      this.login = false;
+  methods: {
+    checkIfLogin() {
+
     }
-    console.log(this.login, token);
+  },
+  created() {
+    this.$Cache.setCache('open_id', 123)
   }
 };
 </script>

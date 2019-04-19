@@ -31,6 +31,11 @@ export default new Router({
       // 单位变更
     },
     {
+      path: '/myInfo',
+      component: COMPONENTS.MyInfo
+      // 个人信息
+    },
+    {
       path: '/unitForm', component: COMPONENTS.UnitForm
     // 新增单位变更列表
     },

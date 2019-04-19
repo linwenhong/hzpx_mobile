@@ -50,7 +50,5 @@ export default {
   margin: 0 auto;
   padding-top: 20%;
 }
-.mt-5 {
-  margin-top: 0.5rem;
-}
+
 </style>

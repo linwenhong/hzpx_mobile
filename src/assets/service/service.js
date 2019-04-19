@@ -23,6 +23,10 @@ const doTopic = (request) => { return post('do_topic', request) }; // 答题
 const getWrongTopics = (request) => { return get('wrong_log', request) }; // 获取练习题(错题)
 const doWrongTopic = (request) => { return post('update_wrong_log', request) }; // 答题(错题)
 
+const getNotices = () => { return get('notice', {}) }; // 获取培训考试通知
+const bindingUser = (request) => { return post('get_client_login', request) }; // 绑定
+const unitChange = (request) => { return get('change_unit', request) }; // 单位变更
+
 /******************************/
 
 
@@ -32,4 +36,7 @@ export default {
   doTopic,
   getWrongTopics,
   doWrongTopic,
+  getNotices,
+  bindingUser,
+  unitChange
 }

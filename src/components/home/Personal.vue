@@ -2,9 +2,9 @@
   <div class="personal">
     <div class="info">
       <div class="author-img">
-        <img src="../../assets/images/user.png" alt="author-img">
+        <img :src="pic" >
       </div>
-      <span class="user-name">user</span>
+      <span class="user-name">{{username || '---'}}</span>
     </div>
 
     <!-- <div class="personal-item" @click.stop='unitChange'>
@@ -13,6 +13,11 @@
         <img src="../../assets/images/jiantou.png" alt="" style="color: #eee">
       </div>
     </div>-->
+        <yd-cell-group>
+      <yd-cell-item arrow type="link" href="/myInfo">
+        <span slot="left">个人信息</span>
+      </yd-cell-item>
+    </yd-cell-group>
     <yd-cell-group>
       <yd-cell-item arrow type="link" href="/unitChange">
         <span slot="left">单位变更</span>
@@ -25,17 +30,21 @@
 export default {
   name: "Personal",
   data() {
-    return {};
+    return {
+      username: '',
+      pic: require('../../assets/images/user.png')
+    };
   },
   methods: {
   },
   created() {
     this.$Service.getStudentDetails({ student_id: 166 }).then(res => {
-      console.log(res);
       if (res.code == 200) {
+        this.username = res.data.name
+        this.pic = this.$Config.api_url +  res.data.pic
         this.$Cache.setCache("info", res.data, true);
       }
-    });
+    })
   }
 };
 </script>

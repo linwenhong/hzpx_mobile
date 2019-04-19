@@ -7,4 +7,5 @@ export const COMPONENTS = {
   Login: resolve => require(['@/components/home/Login'], resolve),
   UnitChange: resolve => require(['@/components/unitChange/UnitChange'], resolve),
   UnitForm: resolve => require(['@/components/unitChange/UnitForm'], resolve),
+  MyInfo: resolve => require(['@/components/personal/MyInfo'], resolve)
 }
