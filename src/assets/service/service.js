@@ -26,6 +26,7 @@ const doWrongTopic = (request) => { return post('update_wrong_log', request) }; 
 const getNotices = () => { return get('notice', {}) }; // 获取培训考试通知
 const bindingUser = (request) => { return post('get_client_login', request) }; // 绑定
 const unitChange = (request) => { return get('change_unit', request) }; // 单位变更
+const company = () => { return get('company', {}) }; // 公司列表
 
 /******************************/
 
@@ -38,5 +39,6 @@ export default {
   doWrongTopic,
   getNotices,
   bindingUser,
-  unitChange
+  unitChange,
+  company
 }

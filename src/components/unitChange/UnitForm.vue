@@ -11,9 +11,8 @@
       </yd-cell-item>
       <yd-cell-item arrow type="label">
         <span slot="left">新单位：</span>
-        <select slot="right">
-          <option value>请选择新单位</option>
-          <option value="1">公司1</option>
+        <select slot="right" placeholder='请选择新单位' v-model="unitForm['new_com_id']">
+          <!-- <option v-for="" value="1">公司1</option> -->
         </select>
       </yd-cell-item>
       <yd-cell-item>
@@ -22,7 +21,7 @@
       </yd-cell-item>
     </yd-cell-group>
     <div class="mt-5">
-      <yd-button size="large" type="primary" @click.prevent='confirm'>提交</yd-button>
+      <yd-button size="large" type="primary" @click.native='confirm'>提交</yd-button>
     </div>
   </div>
 </template>
@@ -33,13 +32,34 @@ export default {
   data() {
     return {
       unitForm: {},
-      oldUnit: "统计局"
+      info: this.$Cache.getCache('info', true),
+      oldUnit: ''
     };
   },
   methods: {
       confirm() {
-          console.log(this.unitForm)
+          const request = {
+            title: this.unitForm.title,
+            old_com_id: this.info.company_id,
+            new_com_id: this.info.new_com_id,
+            approval_from: 1,
+            approval_author: this.info.name
+          }
+          console.log(request)
+      },
+      getCompanyList() {
+        this.$Service.company().then(res => {
+          if(res.code == 200) {
+            console.log(res)
+          }
+        })
       }
+  },
+  created() {
+    this.getCompanyList()
+  },
+  mounted() {
+    this.oldUnit = this.info['company_name']
   }
 };
 </script>

@@ -4,12 +4,29 @@
       <button class="btn" @click.prevent="add">新增单位变更</button>
     </div>
     <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
-      <ul slot="list" class="unitChange-list">
-        <li v-for="item of list" :key="item.id">{{item.title}}</li>
-      </ul>
+      <yd-cell-group slot="list" v-for="item of list" :key="item.id">
+        <yd-cell-item>
+          <span slot="left">申请标题</span>
+          <span slot="right">{{item.title}}</span>
+        </yd-cell-item>
+        <yd-cell-item>
+          <span slot="left">旧单位</span>
+          <span slot="right">{{item.old_company_name || '-' }}</span>
+        </yd-cell-item>
+        <yd-cell-item>
+          <span slot="left">新单位</span>
+          <span slot="right">{{item.new_company_name || '-' }}</span>
+        </yd-cell-item>
+      </yd-cell-group>
+
+      <!-- <ul slot="list" class="unitChange-list">
+        <li v-for="item of list" :key="item.id">
+
+        </li>
+      </ul>-->
 
       <!-- 数据全部加载完毕显示 -->
-      <span slot="doneTip">啦啦啦，啦啦啦，没有数据啦~~</span>
+      <span slot="doneTip">已全部展示</span>
 
       <!-- 加载中提示，不指定，将显示默认加载中图标 -->
       <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg">
@@ -52,7 +69,7 @@ export default {
           this.$refs.infinitescrollDemo.$emit("ydui.infinitescroll.finishLoad");
 
           this.page++;
-          this.loadList()
+          this.loadList();
         }
       });
     },
