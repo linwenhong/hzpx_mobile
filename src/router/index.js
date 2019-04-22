@@ -6,7 +6,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/', redirect: '/personal' },
+    { path: '/', redirect: '/home/personal' },
     {path: '/home', component: COMPONENTS.Home, redirect: '/home/notice', children: [
       {
         path: 'login',

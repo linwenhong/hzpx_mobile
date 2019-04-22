@@ -9,7 +9,7 @@
     name: 'SignIn',
     data () {
       return {
-        userInfo: this.$Cache.getCache('userInfo', true),
+        userInfo: this.$Cache.getCache('info', true),
         type: this.$route.query['type'], // 1考试, 2模拟, 3培训
         id: this.$route.query['id'] // 对应type的数据id
       }

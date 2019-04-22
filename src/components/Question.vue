@@ -76,7 +76,7 @@ export default {
   data () {
     return {
       loading: true, // 是否数据加载中
-      userInfo: this.$Cache.getCache('userInfo', true),
+      userInfo: this.$Cache.getCache('info', true),
       public: this.$route.query['public'] == 1 ? 1 : 2, // 1公共题 2专业题
       tabIndex: this.$route.query['tabIndex'] == 2 ? 2 : 1, // 1顺序练题, 2错题本
       topicsCount: 0, // 题目总数
@@ -120,7 +120,7 @@ export default {
       const request = {
         student_id: this.userInfo.id,
         category_id: this.public == 1 ? 0 : this.userInfo.category_id,
-        per_num: 100 // 单次获取题目数量
+        per_num: 300 // 单次获取题目数量
       };
       if (this.tabIndex == 2) { // 错题本
         this.$Service.getWrongTopics(request).then(response => {
@@ -176,6 +176,7 @@ export default {
           case 1: option['value'] = 'B';break;
           case 2: option['value'] = 'C';break;
           case 3: option['value'] = 'D';break;
+          case 4: option['value'] = 'E';break;
         }
       });
     },
