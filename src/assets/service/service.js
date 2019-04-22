@@ -22,6 +22,7 @@ const getTopics = (request) => { return post('get_topics', request) }; // 获取
 const doTopic = (request) => { return post('do_topic', request) }; // 答题
 const getWrongTopics = (request) => { return get('wrong_log', request) }; // 获取练习题(错题)
 const doWrongTopic = (request) => { return post('update_wrong_log', request) }; // 答题(错题)
+const signIn = (request) => { return post('insert_log', request) }; // 签到
 
 /******************************/
 
@@ -32,4 +33,5 @@ export default {
   doTopic,
   getWrongTopics,
   doWrongTopic,
+  signIn,
 }

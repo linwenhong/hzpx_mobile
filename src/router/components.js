@@ -1,5 +1,6 @@
 export const COMPONENTS = {
   Question: resolve => require(['@/components/Question'], resolve),
+  SignIn: resolve => require(['@/components/SignIn'], resolve),
   Home: resolve => require(['@/views/Home'], resolve),
   Notice: resolve => require(['@/components/home/Notice'], resolve),
   Exercises: resolve => require(['@/components/home/Exercises'], resolve),

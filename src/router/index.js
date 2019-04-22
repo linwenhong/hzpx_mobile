@@ -30,11 +30,8 @@ export default new Router({
       component: COMPONENTS.Question
     },
     {
-      path: '/question2',
-      component: COMPONENTS.Question,
-      children: [
-
-      ]
+      path: '/sign-in',
+      component: COMPONENTS.SignIn
     }
   ]
 })

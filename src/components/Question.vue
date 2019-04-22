@@ -16,7 +16,10 @@
 
       <div v-if="!loading" class="page-content">
         <div class="title">
-          <p>{{ topicDetails.title }}</p>
+          <p>
+            <yd-button class="type" size="mini" type="primary" shape="circle">{{ topicDetails.type | QuestionType }}</yd-button>
+            {{ topicDetails.title }}
+          </p>
 
           <yd-lightbox>
             <yd-lightbox-img v-for="path in topicDetails.topic_imgs" :key="key" :src="$Config.file_url + path"></yd-lightbox-img>
@@ -282,5 +285,12 @@ export default {
   }
   .submit-result >>> .yd-icon-checkoff {
    color: #04be02;
+  }
+  .type {
+    font-size: 0.2rem;
+    margin-right: 0.1rem;
+    height: 0.35rem;
+    line-height: 0.35rem;
+    margin-top: -0.1rem;
   }
 </style>
