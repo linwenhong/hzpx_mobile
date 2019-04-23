@@ -55,6 +55,7 @@ export default {
             icon: "success"
           });
           this.$Cache.setCache('login', true);
+          this.$Cache.setCache('UserChoice', res.data, true);
           this.$router.push("/home/notice");
         } else {
           this.$dialog.toast({
