@@ -19,7 +19,7 @@
           <span slot="right">{{item.start_time + '至' + item.end_time || '-'}}</span>
         </yd-cell-item>
         <yd-cell-item>
-          <span slot="left">培训机构名称名称:</span>
+          <span slot="left">培训机构名称:</span>
           <span slot="right"></span>
         </yd-cell-item>
       </yd-cell-group>
