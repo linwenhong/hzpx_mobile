@@ -17,8 +17,8 @@
       </yd-cell-item>
     </yd-cell-group>
     <yd-cell-group>
-      <yd-cell-item arrow type="link" href="/Certificate">
-        <span slot="left">合格证</span>
+      <yd-cell-item arrow type="link" href="/certificate">
+        <span slot="left">合格证列表</span>
       </yd-cell-item>
     </yd-cell-group>
   </div>
@@ -36,7 +36,7 @@ export default {
   methods: {},
   created() {
     // let student_id = this.$Cache.getCache('info', true)[' student_id']
-    this.$Service.getStudentDetails({ student_id: 166 }).then(res => {
+    this.$Service.getStudentDetails({ student_id: 1 }).then(res => {
       if (res.code == 200) {
         this.username = res.data.name;
         this.pic = this.$Config.api_url + res.data.pic;

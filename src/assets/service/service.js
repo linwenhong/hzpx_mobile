@@ -26,8 +26,10 @@ const doWrongTopic = (request) => { return post('update_wrong_log', request) }; 
 const getNotices = () => { return get('notice', {}) }; // 获取培训考试通知
 const bindingUser = (request) => { return post('get_client_login', request) }; // 绑定
 const unitChange = (request) => { return get('change_unit', request) }; // 单位变更
+const addUnitChange = (request) => { return post('change_unit', request) }; // 新增单位变更
 const company = () => { return get('company', {}) }; // 公司列表
-
+const images = (request) => { return post('images', request) }; // 图片上传
+const cert = (id) => { return createService('cert').details(id, {}) }; // 合格证信息
 /******************************/
 
 
@@ -40,5 +42,8 @@ export default {
   getNotices,
   bindingUser,
   unitChange,
-  company
+  addUnitChange,
+  company,
+  images,
+  cert
 }

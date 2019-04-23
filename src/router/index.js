@@ -6,8 +6,8 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/', redirect: '/personal' },
-    {path: '/home', component: COMPONENTS.Home, redirect: '/home/notice', children: [
+    { path: '/', redirect: '/home/personal' },
+    {path: '/home', component: COMPONENTS.Home, children: [
       {
         path: 'login',
         component: COMPONENTS.Login
@@ -34,6 +34,11 @@ export default new Router({
       path: '/myInfo',
       component: COMPONENTS.MyInfo
       // 个人信息
+    },
+    {
+      path: '/certificate',
+      component: COMPONENTS.Certificate
+      // 合格证
     },
     {
       path: '/unitForm', component: COMPONENTS.UnitForm

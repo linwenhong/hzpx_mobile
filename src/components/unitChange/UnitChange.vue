@@ -19,12 +19,6 @@
         </yd-cell-item>
       </yd-cell-group>
 
-      <!-- <ul slot="list" class="unitChange-list">
-        <li v-for="item of list" :key="item.id">
-
-        </li>
-      </ul>-->
-
       <!-- 数据全部加载完毕显示 -->
       <span slot="doneTip">已全部展示</span>
 
@@ -100,7 +94,7 @@ export default {
 .unitChange .btn {
   padding: 0.2rem 0.3rem;
   border-radius: 0.1rem;
-  background-color: rgb(159, 243, 23);
+  background-color: #04be02;
   color: #fff;
   border: none;
 }
