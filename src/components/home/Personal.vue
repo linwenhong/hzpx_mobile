@@ -17,8 +17,8 @@
       </yd-cell-item>
     </yd-cell-group>
     <yd-cell-group>
-      <yd-cell-item arrow type="link" href="/Certificate">
-        <span slot="left">合格证</span>
+      <yd-cell-item arrow type="link" href="/certificate">
+        <span slot="left">合格证列表</span>
       </yd-cell-item>
     </yd-cell-group>
   </div>

@@ -36,6 +36,11 @@ export default new Router({
       // 个人信息
     },
     {
+      path: '/certificate',
+      component: COMPONENTS.Certificate
+      // 合格证
+    },
+    {
       path: '/unitForm', component: COMPONENTS.UnitForm
     // 新增单位变更列表
     },
