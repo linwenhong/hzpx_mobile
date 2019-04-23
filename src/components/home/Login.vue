@@ -56,6 +56,7 @@ export default {
           });
           this.$Cache.setCache('login', true);
           this.$Cache.setCache('UserChoice', res.data, true);
+          this.$Cache.setCache('info', res.data[0], true);
           this.$router.push("/home/notice");
         } else {
           this.$dialog.toast({

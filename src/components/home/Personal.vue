@@ -35,8 +35,7 @@ export default {
   },
   methods: {},
   created() {
-    // let student_id = this.$Cache.getCache('info', true)[' student_id']
-    this.$Service.getStudentDetails({ student_id: 166 }).then(res => {
+    this.$Service.getStudentDetails({ student_id: this.$Cache.getCache('info', true).id }).then(res => {
       if (res.code == 200) {
         this.username = res.data.name;
         this.pic = this.$Config.api_url + res.data.pic;
