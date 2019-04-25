@@ -10,4 +10,5 @@ export const COMPONENTS = {
   UnitForm: resolve => require(['@/components/unitChange/UnitForm'], resolve),
   MyInfo: resolve => require(['@/components/personal/MyInfo'], resolve),
   Certificate: resolve => require(['@/components/personal/Certificate'], resolve),
+  UserChoice: resolve => require(['@/components/UserChoice'], resolve),
 }

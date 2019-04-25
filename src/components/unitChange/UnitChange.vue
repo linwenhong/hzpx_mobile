@@ -1,8 +1,5 @@
 <template>
   <div class="unitChange">
-    <div class="btn-change">
-      <button class="btn" @click.prevent="add">新增单位变更</button>
-    </div>
     <yd-infinitescroll :callback="loadList" ref="infinitescrollDemo">
       <yd-cell-group slot="list" v-for="item of list" :key="item.id">
         <yd-cell-item>
@@ -25,6 +22,14 @@
       <!-- 加载中提示，不指定，将显示默认加载中图标 -->
       <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg">
     </yd-infinitescroll>
+
+
+    <div class="hide-content">
+      <yd-button size="large" type="primary">新增单位变更</yd-button>
+    </div>
+    <div class="fixed-footer">
+      <yd-button size="large" type="primary" @click.native="add">新增单位变更</yd-button>
+    </div>
   </div>
 </template>
 
@@ -34,7 +39,7 @@ export default {
   data() {
     return {
       page: 1,
-      pageSize: 5,
+      pageSize: 8,
       list: []
     };
   },
@@ -63,7 +68,6 @@ export default {
           this.$refs.infinitescrollDemo.$emit("ydui.infinitescroll.finishLoad");
 
           this.page++;
-          this.loadList();
         }
       });
     },
@@ -72,45 +76,15 @@ export default {
     }
   },
   created() {
-    const request = {
-      stu_id: this.$Cache.getCache("info", true)["id"],
-      page: this.page,
-      per_num: this.pageSize
-    };
-    this.$Service.unitChange(request).then(response => {
-      if (response.code == 200) {
-        this.list = [];
-        this.list = response.data.data;
-      }
-    });
+    this.loadList();
   }
 };
 </script>
 
 <style scoped>
-.unitChange .btn-change {
-  padding: 0.3rem;
-}
-.unitChange .btn {
-  padding: 0.2rem 0.3rem;
-  border-radius: 0.1rem;
-  background-color: #04be02;
-  color: #fff;
-  border: none;
-}
-.unitChange .btn:active {
-  background-color: lightgreen;
-}
-.unitChange-list {
-  width: 96%;
-  margin: 0.2rem auto 0;
-  display: flex;
-  flex-direction: column;
-}
-.unitChange-list li {
-  width: 100%;
-  padding: 0.3rem 0.6rem;
-  margin-bottom: 10px;
-  background-color: #fff;
-}
+  /deep/ .yd-cell {
+    margin: 0.3rem 0.24rem 0;
+    background-color: #fff;
+    border-radius: 0.15rem;
+  }
 </style>

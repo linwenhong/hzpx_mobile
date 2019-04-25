@@ -1,10 +1,26 @@
 <template>
   <div class="Exercises">
-    <div v-if="!public" class="test-option" @click="select(2)">专业练题</div>
-    <div v-if="!public" class="test-option error-option" @click="select(1)">公共练题</div>
+    <div class="option">
+      <div class="option-left" @click="toTest(2, 1)">
+        <p class="text">专业练题</p>
+        <p class="small-text">开始练题 ></p>
+      </div>
+      <div class="option-right" @click="toTest(2, 2)">
+        <img src="/static/images/1.png">
+        <p>错题本</p>
+      </div>
+    </div>
 
-    <div v-if="public" class="test-option option" @click="toTest(1)">练题</div>
-    <div v-if="public" class="test-option option" @click="toTest(2)">错题本</div>
+    <div class="option public">
+      <div class="option-left" @click="toTest(1, 1)">
+        <p class="text">公共练题</p>
+        <p class="small-text">开始练题 ></p>
+      </div>
+      <div class="option-right" @click="toTest(1, 2)">
+        <img src="/static/images/2.png">
+        <p>错题本</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,36 +29,60 @@ export default {
   name: 'Exercises',
   data () {
     return {
-      public: 0
     }
   },
   methods: {
-    select(type) {
-      this.public = type
-    },
-    toTest(tabIndex) {
-      this.$router.push('/question?public=' + this.public + '&tabIndex=' + tabIndex);
+    toTest(type, tabIndex) {
+      this.$router.push('/question?public=' + type + '&tabIndex=' + tabIndex);
     }
   }
 }
 </script>
 
 <style scoped>
-  .test-option {
-    width: 3rem;
-    height: 3rem;
-    line-height: 3rem;
-    margin: 1rem auto 0;
-    border-radius: 50%;
-    background-color: #4274ff;
-    color: #eee;
+  .option{
+    height: 1.86rem;
+    margin: 0.3rem 0.24rem 0;
+    background-color: #fff;
+    border-radius: 0.15rem;
+    overflow: hidden;
+  }
+  .option-left {
+    width: 5.6rem;
+    height: 100%;
+    float: left;
+    padding: 0.5rem 0 0 0.5rem;
+    background-color: #568fdc;
+  }
+  .option-left .text {
+    color: #fff;
     font-size: 0.4rem;
+  }
+  .option-left .small-text {
+    margin-top: 0.15rem;
+    color: #fefefe;
+    font-size: 0.25rem;
+  }
+  .option-right {
+    width: 1.4rem;
+    height: 100%;
+    float: left;
+  }
+  .option-right img {
+    width: 0.7rem;
+    margin: 0.4rem 0 0 0.35rem;
+  }
+  .option-right p {
+    margin-top: 0.15rem;
+    color: #568fdc;
+    font-size: 0.28rem;
     text-align: center;
   }
-  .error-option {
-    background-color: #ff640a;
+
+  .public .option-left {
+    background-color: #da9d45;
   }
-  .option{
-    background-color: #278c5a;
+  .public .option-right p {
+    color: #da9d45;
   }
 </style>

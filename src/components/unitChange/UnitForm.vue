@@ -7,7 +7,7 @@
       </yd-cell-item>
       <yd-cell-item>
         <span slot="left">旧单位：</span>
-        <yd-input slot="right" v-model="oldUnit" :show-clear-icon="false" readonly/>
+        <yd-input slot="right" v-model="info.company.name" :show-clear-icon="false" readonly/>
       </yd-cell-item>
       <yd-cell-item arrow type="label">
         <span slot="left">新单位：</span>
@@ -15,11 +15,11 @@
           <option v-for="item of companyList" :key="item.id" :value="item.id">{{item.name}}</option>
         </select>
       </yd-cell-item>
+      <hr style="margin: 0 0.24rem; color: #222">
       <yd-cell-item class="upload">
-        <span slot="left">上传单位营业执照：</span>
+        <span class="label" slot="left">上传单位营业执照：</span>
 
         <a href="javascript:;" class="file" slot="left" v-if="!imgUrl">
-          选择文件
           <input
             ref="file"
             type="file"
@@ -144,34 +144,27 @@ export default {
 <style scoped>
 .unitForm {
   width: 96%;
-  margin: 0 auto;
-  padding-top: 20%;
+  margin: 0.2rem auto 0;
+}
+
+.upload .label {
+  margin-top: -1rem;
 }
 
 .file {
   position: relative;
-  display: inline-block;
-  background: #d0eeff;
-  border: 1px solid #99d3f5;
-  border-radius: 4px;
-  padding: 4px 12px;
-  overflow: hidden;
-  color: #1e88c7;
-  text-decoration: none;
-  text-indent: 0;
-  line-height: 20px;
+  width: 1rem;
+  height: 1rem;
+  background-image: url('/static/images/add.png');
+  background-size: 100%;
+  margin: 1rem 0 0.5rem 0.5rem;
 }
-.file input {
+#fileUp {
   position: absolute;
-  font-size: 100px;
   right: 0;
   top: 0;
   opacity: 0;
-}
-.file:active {
-  background: #aadffd;
-  border-color: #78c3f3;
-  color: #004974;
-  text-decoration: none;
+  width: 100%;
+  height: 100%;
 }
 </style>

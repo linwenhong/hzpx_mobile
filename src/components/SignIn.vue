@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div class="test-option" @click="signIn">打卡签到</div>
+    <div class="test-option" @click="signIn">签到</div>
   </div>
 </template>
 
@@ -17,7 +17,7 @@
     methods: {
       signIn () {
         this.$Service.signIn({
-          open_id: this.userInfo.open_id,
+          student_id: this.userInfo.id,
           type: this.type,
           id: this.id
         }).then(response => {
@@ -34,12 +34,12 @@
 
 <style scoped>
   .test-option {
-    width: 3rem;
-    height: 3rem;
-    line-height: 3rem;
-    margin: 3rem auto 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    margin: 4.1rem auto 0;
     border-radius: 50%;
-    background-color: #4274ff;
+    background-color: #568fdc;
     color: #eee;
     font-size: 0.4rem;
     text-align: center;

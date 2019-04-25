@@ -1,17 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { COMPONENTS } from './components'
+import Cache from '@/assets/cache'
 
 Vue.use(Router)
 
-export default new Router({
+const routes = new Router({
   routes: [
-    { path: '/', redirect: '/home/personal' },
+    { path: '/', redirect: '/login' },
+    {
+      path: '/login',
+      component: COMPONENTS.Login
+    }, // 绑定
+    {
+      path: '/user-choice',
+      component: COMPONENTS.UserChoice
+    }, // 身份选择
     {path: '/home', component: COMPONENTS.Home, redirect: '/home/notice', children: [
-      {
-        path: 'login',
-        component: COMPONENTS.Login
-      }, // 绑定
+
       {
         path: 'notice',
         component: COMPONENTS.Notice
@@ -53,4 +59,20 @@ export default new Router({
       component: COMPONENTS.SignIn
     }
   ]
-})
+});
+
+routes.beforeEach((to, from, next) => {
+  console.log(to)
+  if (to.path != '/login') {
+    if (!Cache.getCache('login') || !Cache.getCache('info')) {
+      next('/login')
+    }
+  } else {
+    if (Cache.getCache('login') && Cache.getCache('info')) {
+      next('/home/personal')
+    }
+  }
+  next()
+});
+
+export default routes

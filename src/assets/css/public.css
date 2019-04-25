@@ -7,3 +7,17 @@
 .mt-5 {
     margin-top: 0.5rem;
   }
+
+.yd-btn-primary {
+    background-color: #568fdc !important;
+}
+.fixed-footer {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.hide-content {
+    opacity: 0;
+}

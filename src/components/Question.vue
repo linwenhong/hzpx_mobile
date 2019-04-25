@@ -14,7 +14,7 @@
         </router-link>
       </yd-navbar>
 
-      <div v-if="!loading" class="page-content">
+      <div v-if="!loading && topicDetails.id" class="page-content">
         <div class="title">
           <p>
             <yd-button class="type" size="mini" type="primary" shape="circle">{{ topicDetails.type | QuestionType }}</yd-button>
@@ -119,8 +119,8 @@ export default {
       this.$dialog.loading.open('loading...');
       const request = {
         student_id: this.userInfo.id,
-        category_id: this.public == 1 ? 0 : this.userInfo.category_id,
-        per_num: 300 // 单次获取题目数量
+        category_id: this.public == 1 ? 0 : this.userInfo.company.category,
+        per_num: 50 // 单次获取题目数量
       };
       if (this.tabIndex == 2) { // 错题本
         this.$Service.getWrongTopics(request).then(response => {

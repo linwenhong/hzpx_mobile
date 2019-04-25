@@ -16,7 +16,7 @@
         </yd-cell-item>
         <yd-cell-item>
           <span slot="left">培训时间:</span>
-          <span slot="right">{{item.start_time + '至' + item.end_time || '-'}}</span>
+          <span slot="right" class="time">{{item.start_time + '-' + item.end_time || '-'}}</span>
         </yd-cell-item>
         <yd-cell-item>
           <span slot="left">培训机构名称:</span>
@@ -56,8 +56,19 @@ export default {
 </script>
 
 <style scoped>
+.certificate {
+  padding-top: 0.5rem;
+}
 .cert-box{
   width: 96%;
-  margin: .5rem auto 0
+  margin: 0 auto;
+}
+/deep/ .yd-cell {
+  margin: 0.3rem 0.24rem 0;
+  background-color: #fff;
+  border-radius: 0.15rem;
+}
+.time {
+  font-size: 0.2rem;
 }
 </style>

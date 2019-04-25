@@ -16,18 +16,9 @@
       </yd-tabbar>-->
       <yd-tabbar slot="tabbar">
         <yd-tabbar-item
-          title="登录"
-          link="/home/login"
-          :active="$route.path === '/home/login'"
-          v-if="!$Cache.getCache('login')"
-        >
-          <yd-icon name="phone1" slot="icon"></yd-icon>
-        </yd-tabbar-item>
-        <yd-tabbar-item
           title="通知"
           link="/home/notice"
           :active="$route.path === '/home/notice'"
-          v-else
         >
           <yd-icon name="home" slot="icon"></yd-icon>
         </yd-tabbar-item>
@@ -86,7 +77,9 @@ export default {
     }
   },
   created() {
-    this.$Cache.setCache('open_id', 123)
+    if (!this.$Cache.getCache('login') || !this.$Cache.getCache('info')) {
+      this.$router.push('/login')
+    }
   }
 };
 </script>
@@ -94,5 +87,8 @@ export default {
 <style scoped>
 .home {
   height: 100vh;
+}
+/deep/ .yd-tabbar-active {
+  color: #568fdc !important;
 }
 </style>
