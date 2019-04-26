@@ -2,23 +2,26 @@
   <div class="personal">
     <div class="info">
       <div class="author-img">
-        <img :src="$Config.file_url + userInfo.pic">
+        <img :src="Config.file_url + userInfo.pic">
       </div>
       <span class="user-name">{{userInfo.name || '---'}}</span>
 
       <router-link to="/myInfo">
-        <div class="user-info">个人信息 > </div>
+        <div class="user-info">个人信息 ></div>
       </router-link>
-
     </div>
     <yd-cell-group>
       <yd-cell-item arrow type="link" href="/certificate">
-        <span slot="left"><img src="/static/images/cert.png">合格证列表</span>
+        <span slot="left">
+          <img src="/static/images/cert.png">合格证列表
+        </span>
       </yd-cell-item>
     </yd-cell-group>
     <yd-cell-group>
       <yd-cell-item arrow type="link" href="/unitChange">
-        <span slot="left"><img src="/static/images/unitChange.png">单位变更</span>
+        <span slot="left">
+          <img src="/static/images/unitChange.png">单位变更
+        </span>
       </yd-cell-item>
     </yd-cell-group>
   </div>
@@ -29,12 +32,12 @@ export default {
   name: "Personal",
   data() {
     return {
-      userInfo: this.$Cache.getCache("info", true)
+      userInfo: this.$Cache.getCache("info", true),
+      Config: this.$Config.getCache("info", true)
     };
   },
   methods: {},
-  created() {
-  }
+  created() {}
 };
 </script>
 
@@ -52,7 +55,7 @@ export default {
   margin: 0.1rem 0 0.3rem;
   padding: 0.4rem 0.2rem;
   overflow: hidden;
-  background-image: url('/static/images/user-bg.png');
+  background-image: url("/static/images/user-bg.png");
 }
 .author-img {
   width: 1rem;

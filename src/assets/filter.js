@@ -1,5 +1,5 @@
 // 题目类型
-function QuestionType (value) {
+function QuestionType(value) {
   let status = ''
   switch (Number(value)) {
     case 1: status = '单选题'; break;
@@ -10,7 +10,7 @@ function QuestionType (value) {
   return status
 }
 
-function ApplicationType (value) {
+function ApplicationType(value) {
   let status = ''
   switch (Number(value)) {
     case 1: status = '初次考核'; break;

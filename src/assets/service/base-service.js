@@ -15,35 +15,35 @@ axios.interceptors.response.use(function (response) {
 });
 
 
-function get (url, request) {
+function get(url, request) {
   return axios.get(url, { params: request })
     .then(response => {
       return response['data']
     })
 }
 
-function post (url, request) {
+function post(url, request) {
   return axios.post(url, request)
     .then(response => {
       return response['data']
     })
 }
 
-function put (url, request) {
+function put(url, request) {
   return axios.put(url, request)
     .then(response => {
       return response['data']
     })
 }
 
-function patch (url, request) {
+function patch(url, request) {
   return axios.patch(url, request)
     .then(response => {
       return response['data']
     })
 }
 
-function del (url, request) {
+function del(url, request) {
   if (request) {
     url = url + getUrlQuery(request)
   }
@@ -54,7 +54,7 @@ function del (url, request) {
 }
 
 let tokenInfo = true
-function tokenExpire () {
+function tokenExpire() {
   if (!tokenInfo) return
   tokenInfo = false
 
@@ -64,7 +64,7 @@ function tokenExpire () {
   }, 1000)
 }
 
-function getUrlQuery (request) {
+function getUrlQuery(request) {
   let result = '?'
   let isFirst = true
   for (const key in request) {

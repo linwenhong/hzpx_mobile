@@ -101,10 +101,10 @@ export default {
                 mes: "提交成功",
                 timeout: 1000,
                 icon: "success"
-              })
+              });
               setTimeout(() => {
-                this.$router.push('/unitChange')
-              }, 2000)
+                this.$router.push("/unitChange");
+              }, 2000);
             }
           });
         }
@@ -155,7 +155,7 @@ export default {
   position: relative;
   width: 1rem;
   height: 1rem;
-  background-image: url('/static/images/add.png');
+  background-image: url("/static/images/add.png");
   background-size: 100%;
   margin: 1rem 0 0.5rem 0.5rem;
 }

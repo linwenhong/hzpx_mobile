@@ -9,34 +9,34 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {
-    name: 'UserChoice',
-    data () {
-      return {
-        UserChoice: this.$Cache.getCache('UserChoice', true)
-      }
-    },
-    methods: {
-      select(option) {
-        this.$Cache.setCache('info', option, true);
-        this.$router.push("/home/notice");
-      }
+export default {
+  name: "UserChoice",
+  data() {
+    return {
+      UserChoice: this.$Cache.getCache("UserChoice", true)
+    };
+  },
+  methods: {
+    select(option) {
+      this.$Cache.setCache("info", option, true);
+      this.$router.push("/home/notice");
     }
   }
+};
 </script>
 
 <style scoped>
-  .title {
-    margin: 0.2rem 0;
-    font-size: 0.3rem;
-    text-align: center;
-  }
-  .option {
-    background-color: #fff;
-    font-size: 0.25rem;
-    margin: 0.1rem 0.3rem;
-    padding: 0.2rem;
-    border-radius: 0.2rem;
-    line-height: 0.5rem;
-  }
+.title {
+  margin: 0.2rem 0;
+  font-size: 0.3rem;
+  text-align: center;
+}
+.option {
+  background-color: #fff;
+  font-size: 0.25rem;
+  margin: 0.1rem 0.3rem;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  line-height: 0.5rem;
+}
 </style>

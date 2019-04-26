@@ -23,7 +23,6 @@
       <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg">
     </yd-infinitescroll>
 
-
     <div class="hide-content">
       <yd-button size="large" type="primary">新增单位变更</yd-button>
     </div>
@@ -82,9 +81,9 @@ export default {
 </script>
 
 <style scoped>
-  /deep/ .yd-cell {
-    margin: 0.3rem 0.24rem 0;
-    background-color: #fff;
-    border-radius: 0.15rem;
-  }
+/deep/ .yd-cell {
+  margin: 0.3rem 0.24rem 0;
+  background-color: #fff;
+  border-radius: 0.15rem;
+}
 </style>
