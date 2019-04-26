@@ -1,6 +1,6 @@
 <template>
   <div class="certificate">
-    <div class='cert-box' v-for="item of list" :key="item.id">
+    <div class="cert-box" v-for="item of list" :key="item.id">
       <yd-cell-group>
         <yd-cell-item>
           <span slot="left">工作单位:</span>
@@ -59,7 +59,7 @@ export default {
 .certificate {
   padding-top: 0.5rem;
 }
-.cert-box{
+.cert-box {
   width: 96%;
   margin: 0 auto;
 }

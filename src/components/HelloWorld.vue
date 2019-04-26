@@ -1,16 +1,14 @@
 <template>
-  <div class="hello">
-  </div>
+  <div class="hello"></div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-    }
+  name: "HelloWorld",
+  data() {
+    return {};
   }
-}
+};
 </script>
 
 <style scoped>

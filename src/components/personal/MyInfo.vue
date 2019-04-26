@@ -17,7 +17,7 @@
         <span slot="left">所在单位:</span>
         <span slot="right">{{info.company.name}}</span>
       </yd-cell-item>
-            <yd-cell-item>
+      <yd-cell-item>
         <span slot="left">单位职务:</span>
         <span slot="right">{{info.position || '-'}}</span>
       </yd-cell-item>
@@ -25,7 +25,6 @@
         <span slot="left">考核类别:</span>
         <span slot="right">{{info.application_type | ApplicationType}}</span>
       </yd-cell-item>
-      
     </yd-cell-group>
   </div>
 </template>
@@ -42,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-/deep/  .yd-cell-right {
+/deep/ .yd-cell-right {
   color: #888;
 }
 </style>

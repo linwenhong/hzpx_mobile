@@ -15,11 +15,7 @@
         </yd-tabbar-item>
       </yd-tabbar>-->
       <yd-tabbar slot="tabbar">
-        <yd-tabbar-item
-          title="通知"
-          link="/home/notice"
-          :active="$route.path === '/home/notice'"
-        >
+        <yd-tabbar-item title="通知" link="/home/notice" :active="$route.path === '/home/notice'">
           <yd-icon name="home" slot="icon"></yd-icon>
         </yd-tabbar-item>
         <yd-tabbar-item
@@ -42,13 +38,12 @@
 </template>
 
 <script>
-
 export default {
   name: "home",
   data() {
     return {
       activeId: 0,
-      login:  this.$Cache.getCache('login'),
+      login: this.$Cache.getCache("login"),
       routerList: [
         {
           id: 0,
@@ -72,13 +67,11 @@ export default {
     };
   },
   methods: {
-    checkIfLogin() {
-
-    }
+    checkIfLogin() {}
   },
   created() {
-    if (!this.$Cache.getCache('login') || !this.$Cache.getCache('info')) {
-      this.$router.push('/login')
+    if (!this.$Cache.getCache("login") || !this.$Cache.getCache("info")) {
+      this.$router.push("/login");
     }
   }
 };

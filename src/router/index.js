@@ -16,21 +16,22 @@ const routes = new Router({
       path: '/user-choice',
       component: COMPONENTS.UserChoice
     }, // 身份选择
-    {path: '/home', component: COMPONENTS.Home, redirect: '/home/notice', children: [
-
-      {
-        path: 'notice',
-        component: COMPONENTS.Notice
-      }, // 通知
-      {
-        path: 'exercises',
-        component: COMPONENTS.Exercises
-      }, // 练题
-      {
-        path: 'personal',
-        component: COMPONENTS.Personal
-      } // 个人中心
-    ]},
+    {
+      path: '/home', component: COMPONENTS.Home, redirect: '/home/notice', children: [
+        {
+          path: 'notice',
+          component: COMPONENTS.Notice
+        }, // 通知
+        {
+          path: 'exercises',
+          component: COMPONENTS.Exercises
+        }, // 练题
+        {
+          path: 'personal',
+          component: COMPONENTS.Personal
+        } // 个人中心
+      ]
+    },
     {
       path: '/unitChange',
       component: COMPONENTS.UnitChange
@@ -48,7 +49,7 @@ const routes = new Router({
     },
     {
       path: '/unitForm', component: COMPONENTS.UnitForm
-    // 新增单位变更列表
+      // 新增单位变更列表
     },
     {
       path: '/question',
@@ -62,7 +63,7 @@ const routes = new Router({
 });
 
 routes.beforeEach((to, from, next) => {
-  console.log(to)
+  console.log(to, from)
   if (to.path != '/login') {
     if (!Cache.getCache('login') || !Cache.getCache('info')) {
       next('/login')
