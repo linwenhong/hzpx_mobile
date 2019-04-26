@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <h5 class="title">{{ type | SignInType }}签到</h5>
     <div class="test-option" @click="signIn">签到</div>
   </div>
 </template>
@@ -47,11 +48,16 @@ export default {
   width: 2.4rem;
   height: 2.4rem;
   line-height: 2.4rem;
-  margin: 4.1rem auto 0;
+  margin: 1rem auto 0;
   border-radius: 50%;
   background-color: #568fdc;
   color: #eee;
   font-size: 0.4rem;
+  text-align: center;
+}
+.title {
+  margin-top: 2.5rem;
+  font-size: 0.5rem;
   text-align: center;
 }
 </style>

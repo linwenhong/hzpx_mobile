@@ -21,8 +21,9 @@ switch (env) {
     Config.base_url = 'http://mob.hzjt.test.ywqian.com/';
     break;
   case 'prod':
-    Config.api_url = 'http://192.168.1.4:11050/pc/';
-    Config.base_url = 'http://localhost:8081/';
+    Config.api_url = 'http://api.hzjt.test.ywqian.com/api/';
+    Config.file_url = 'http://api.hzjt.test.ywqian.com/pc/';
+    Config.base_url = 'http://mob.hzjt.test.ywqian.com/';
     break;
   default:
     console.error('Config error')

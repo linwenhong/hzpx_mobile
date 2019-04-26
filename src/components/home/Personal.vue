@@ -2,7 +2,7 @@
   <div class="personal">
     <div class="info">
       <div class="author-img">
-        <img :src="Config.file_url + userInfo.pic">
+        <img :src="$Config.file_url + userInfo.pic">
       </div>
       <span class="user-name">{{userInfo.name || '---'}}</span>
 
@@ -32,8 +32,7 @@ export default {
   name: "Personal",
   data() {
     return {
-      userInfo: this.$Cache.getCache("info", true),
-      Config: this.$Config.getCache("info", true)
+      userInfo: this.$Cache.getCache("info", true)
     };
   },
   methods: {},

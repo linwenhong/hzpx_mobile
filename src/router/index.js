@@ -6,6 +6,7 @@ import Cache from '@/assets/cache'
 Vue.use(Router)
 
 const routes = new Router({
+  mode: 'history',
   routes: [
     { path: '/', redirect: '/login' },
     {
