@@ -1,6 +1,8 @@
 export const COMPONENTS = {
   Question: resolve => require(['@/components/Question'], resolve),
   SignIn: resolve => require(['@/components/SignIn'], resolve),
+  Auth: resolve => require(['@/components/Auth'], resolve),
+  Handle: resolve => require(['@/components/Handle'], resolve),
   Home: resolve => require(['@/views/Home'], resolve),
   Notice: resolve => require(['@/components/home/Notice'], resolve),
   Exercises: resolve => require(['@/components/home/Exercises'], resolve),
@@ -9,6 +11,7 @@ export const COMPONENTS = {
   UnitChange: resolve => require(['@/components/unitChange/UnitChange'], resolve),
   UnitForm: resolve => require(['@/components/unitChange/UnitForm'], resolve),
   MyInfo: resolve => require(['@/components/personal/MyInfo'], resolve),
+  Cert: resolve => require(['@/components/personal/Cert'], resolve),
   Certificate: resolve => require(['@/components/personal/Certificate'], resolve),
   UserChoice: resolve => require(['@/components/UserChoice'], resolve),
 }

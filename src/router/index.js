@@ -8,7 +8,7 @@ Vue.use(Router)
 const routes = new Router({
   mode: 'history',
   routes: [
-    { path: '/', redirect: '/login' },
+    { path: '/', redirect: '/home' },
     {
       path: '/login',
       component: COMPONENTS.Login
@@ -44,6 +44,11 @@ const routes = new Router({
       // 个人信息
     },
     {
+      path: '/cert',
+      component: COMPONENTS.Cert
+      // 合格证
+    },
+    {
       path: '/certificate',
       component: COMPONENTS.Certificate
       // 合格证
@@ -59,13 +64,26 @@ const routes = new Router({
     {
       path: '/sign-in',
       component: COMPONENTS.SignIn
-    }
+    },
+    {
+      path: '/auth',
+      component: COMPONENTS.Auth
+    },
+    {
+      path: '/handle',
+      component: COMPONENTS.Handle
+    },
   ]
 });
 
 routes.beforeEach((to, from, next) => {
-  console.log(to, from)
-  if (to.path != '/login') {
+  if (
+    to.path == '/auth'
+    || to.path == '/handle'
+    || to.path == '/sign-in'
+  ) {
+    next()
+  } else if (to.path != '/login') {
     if (!Cache.getCache('login') || !Cache.getCache('info')) {
       next('/login')
     }

@@ -20,7 +20,7 @@
         </yd-cell-item>
         <yd-cell-item>
           <span slot="left">培训机构名称:</span>
-          <span slot="right"></span>
+          <span slot="right">惠州市交通运输职业培训学校</span>
         </yd-cell-item>
       </yd-cell-group>
     </div>

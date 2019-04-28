@@ -31,6 +31,8 @@ const addUnitChange = (request) => { return post('change_unit', request) }; // �
 const company = () => { return get('company', {}) }; // 公司列表
 const images = (request) => { return post('images', request) }; // 图片上传
 const cert = (id) => { return createService('cert').details(id, {}) }; // 合格证信息
+
+const getOpenId = (request) => { return post('get_open_id', request) }; // code获取openid
 /******************************/
 
 
@@ -47,5 +49,6 @@ export default {
   addUnitChange,
   company,
   images,
-  cert
+  cert,
+  getOpenId,
 }

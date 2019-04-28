@@ -55,7 +55,7 @@ export default {
             icon: "success"
           });
           this.$Cache.setCache("login", true);
-          if (res.data.length != 1) {
+          if (res.data.length == 1) {
             this.$Cache.setCache("info", res.data[0], true);
             this.$router.push("/home/notice");
           } else {

@@ -39,6 +39,38 @@ export default {
           }
         });
     }
+  },
+  mounted() {
+    const userInfo = this.$Cache.getCache("info", true);
+    const open_id = this.$Cache.getCache("open_id");
+    if (userInfo && userInfo.id && open_id) {
+      const request = {
+        id_card: userInfo.id_card,
+        phone: userInfo.phone,
+        open_id: open_id
+      };
+      if (!this.$Cache.get("canSignIn")) {
+        this.$Service.bindingUser(request).then(res => {
+          if (res.data.length > 1) {
+            this.$Cache.set(
+              "formPage",
+              {
+                path: "sign-in",
+                data: {
+                  type: this.type,
+                  id: this.id
+                }
+              },
+              true
+            );
+            this.$Cache.setCache("UserChoice", res.data, true);
+            this.$router.push("/user-choice");
+          }
+        });
+      }
+    } else {
+      this.$router.push("/auth");
+    }
   }
 };
 </script>
