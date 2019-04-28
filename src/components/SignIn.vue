@@ -43,7 +43,11 @@ export default {
   mounted() {
     const userInfo = this.$Cache.getCache("info", true);
     const open_id = this.$Cache.getCache("open_id");
-    if (userInfo && userInfo.id && open_id) {
+    if (
+      userInfo &&
+      userInfo.id &&
+      open_id
+    ) {
       const request = {
         id_card: userInfo.id_card,
         phone: userInfo.phone,

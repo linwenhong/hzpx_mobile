@@ -144,7 +144,8 @@ export default {
 <style scoped>
 .unitForm {
   width: 96%;
-  margin: 0.2rem auto 0;
+  margin: 0 auto;
+  padding-top: 0.2rem;
 }
 
 .upload .label {

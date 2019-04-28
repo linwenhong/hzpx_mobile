@@ -17,7 +17,8 @@
       </yd-cell-group>
 
       <!-- 数据全部加载完毕显示 -->
-      <span slot="doneTip">已全部展示</span>
+      <span v-if="total == 0" slot="doneTip">暂无数据</span>
+      <span v-if="total > 0" slot="doneTip">已全部展示</span>
 
       <!-- 加载中提示，不指定，将显示默认加载中图标 -->
       <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg">
@@ -39,6 +40,7 @@ export default {
     return {
       page: 1,
       pageSize: 8,
+      total: 0,
       list: []
     };
   },
@@ -52,6 +54,7 @@ export default {
       this.$Service.unitChange(request).then(response => {
         if (response.code == 200) {
           const _list = response.data.data;
+          this.total = response.data.total
 
           this.list = [...this.list, ..._list];
 

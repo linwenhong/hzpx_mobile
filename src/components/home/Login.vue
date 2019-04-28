@@ -57,7 +57,7 @@ export default {
           this.$Cache.setCache("login", true);
           if (res.data.length == 1) {
             this.$Cache.setCache("info", res.data[0], true);
-            this.$router.push("/home/notice");
+            this.$router.push("/home");
           } else {
             this.$Cache.setCache("UserChoice", res.data, true);
             this.$router.push("/user-choice");

@@ -20,24 +20,24 @@ export default {
   methods: {
     select(option) {
       this.$Cache.setCache("info", option, true);
-      const formPage = this.$Cache.get("formPage", true)
+      const formPage = this.$Cache.get("formPage", true);
       if (formPage) {
         // this.$Cache.clear(["formPage"]);
-        let str = '';
+        let str = "";
         let n = 0;
         for (const key in formPage.data) {
           if (n == 0) {
-            str = '?' + key + '=' + formPage.data[key];
+            str = "?" + key + "=" + formPage.data[key];
             n++;
           } else {
-            str += '&' + key + '=' + formPage.data[key];
+            str += "&" + key + "=" + formPage.data[key];
           }
         }
         this.$Cache.set("canSignIn", true);
         const url = formPage.path + str;
         this.$router.push(url);
       } else {
-        this.$router.push("/home/notice");
+        this.$router.push("/home/exercises");
       }
     }
   }
@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 .title {
-  margin: 0.2rem 0;
+  padding-top: 0.2rem;
   font-size: 0.3rem;
   text-align: center;
 }

@@ -1,5 +1,6 @@
 <template>
   <div class="notice">
+    <div class="remark" v-if="testList.length == 0 && trainList.length == 0">暂无通知</div>
     <div class="option" v-for="item of trainList" :key="item.id">
       <div class="title"><i></i>培训通知</div>
       <p>培训名称: {{item.name}}</p>
@@ -85,5 +86,8 @@ export default {
 }
 .test i {
   background-color: #7edb58;
+}
+.remark {
+  margin: 0.5rem auto;
 }
 </style>

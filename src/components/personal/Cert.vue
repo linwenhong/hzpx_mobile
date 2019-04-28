@@ -11,7 +11,7 @@
           证书编号：{{form.num_of_cert || '-'}}
           <span
             class="status"
-          >证书状态：</span>
+          >证书状态：{{BeOverdue(form['validity_period'])}}</span>
         </h5>
         <table border>
           <tr>
@@ -84,14 +84,14 @@ export default {
   name: "Certificate",
   data() {
     return {
-      info: this.$Cache.getCache("info", true),
+      id: this.$route.query["id"],
       list: [],
       form: {}
     };
   },
   methods: {
     getList() {
-      this.$Service.cert(this.info.id).then(res => {
+      this.$Service.cert(this.id).then(res => {
         if (res.code == 200) {
           this.list = [];
           this.form = {};
@@ -110,15 +110,23 @@ export default {
       return time;
     },
     getBirthday(val) {
-      if(val) {
-        return val.substring(0, 4) + '年' + val.substring(5, 6) + '月'
+      if (val) {
+        return val.substring(0, 4) + "年" + val.substring(5, 6) + "月";
       } else {
-        return '-'
+        return "-";
+      }
+    },
+    BeOverdue(val) {
+      if (val) {
+        if (new Date(val).getTime() >= new Date().getTime()) {
+          return "正常";
+        } else {
+          return "过期";
+        }
+      } else {
+        return "-";
       }
     }
-  },
-  mounted() {
-    this.getList();
   }
 };
 </script>
@@ -126,7 +134,8 @@ export default {
 <style scoped>
 .content {
   width: 7rem;
-  margin: 0.2rem auto 0;
+  margin: 0 auto;
+  padding-top: 0.2rem;
 }
 .page-name {
   margin: 0.2rem 0;

@@ -2,13 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { COMPONENTS } from './components'
 import Cache from '@/assets/cache'
+import Config from '@/assets/config'
 
 Vue.use(Router)
 
 const routes = new Router({
   mode: 'history',
   routes: [
-    { path: '/', redirect: '/home' },
+    { path: '/', redirect: '/handle' },
     {
       path: '/login',
       component: COMPONENTS.Login
@@ -18,7 +19,7 @@ const routes = new Router({
       component: COMPONENTS.UserChoice
     }, // 身份选择
     {
-      path: '/home', component: COMPONENTS.Home, redirect: '/home/notice', children: [
+      path: '/home', component: COMPONENTS.Home, redirect: '/home/exercises', children: [
         {
           path: 'notice',
           component: COMPONENTS.Notice
@@ -77,10 +78,16 @@ const routes = new Router({
 });
 
 routes.beforeEach((to, from, next) => {
+  if (Cache.getCache("version") != Config.version) {
+    Cache.clearAll(true);
+    Cache.setCache("version", Config.version);
+    next('/auth')
+  }
   if (
     to.path == '/auth'
     || to.path == '/handle'
     || to.path == '/sign-in'
+    || to.path == '/cert'
   ) {
     next()
   } else if (to.path != '/login') {

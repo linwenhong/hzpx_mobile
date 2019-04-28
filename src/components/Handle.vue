@@ -25,28 +25,32 @@ export default {
       this.$Service.bindingUser(request).then(res => {
         if (res.data.length == 1) {
           this.$Cache.setCache("info", res.data[0], true);
-          this.$router.push("/home/notice");
+          this.$router.push("/home");
         } else {
           this.$Cache.setCache("UserChoice", res.data, true);
           this.$router.push("/user-choice");
         }
       });
     } else {
-      this.$Service.getOpenId({
-        code: this.code
-      }).then(response => {
-        if (response.code == 200) {
-          const open_id = response.data.open_id;
-          this.$Cache.setCache("open_id", open_id);
-          this.$router.push("/login");
-        } else {
-          this.$dialog.toast({
-            mes: response.msg,
-            timeout: 1500,
-            icon: "error"
-          });
-        }
-      });
+      if (this.code) {
+        this.$Service.getOpenId({
+          code: this.code
+        }).then(response => {
+          if (response.code == 200) {
+            const open_id = response.data.openid;
+            this.$Cache.setCache("open_id", open_id);
+            this.$router.push("/login");
+          } else {
+            this.$dialog.toast({
+              mes: response.msg,
+              timeout: 1500,
+              icon: "error"
+            });
+          }
+        });
+      } else {
+        this.$router.push("/auth");
+      }
     }
   }
 };

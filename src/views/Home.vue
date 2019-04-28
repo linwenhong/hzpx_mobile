@@ -84,4 +84,7 @@ export default {
 /deep/ .yd-tabbar-active {
   color: #568fdc !important;
 }
+/deep/ .yd-scrollview {
+  margin-top: 0
+}
 </style>
