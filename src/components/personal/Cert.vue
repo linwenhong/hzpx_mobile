@@ -22,9 +22,11 @@
           </tr>
           <tr>
             <td class="label">出生年月</td>
-            <td>{{getBirthday(form.birthday)}}</td>
+            <!-- <td>{{getBirthday(form.birthday)}}</td> -->
+            <td>******</td>
             <td class="label">身份证号</td>
-            <td>{{form.id_card || '-'}}</td>
+            <!-- <td>{{form.id_card || '-'}}</td> -->
+            <td>******************</td>
           </tr>
           <tr>
             <td class="label">工作单位</td>
@@ -72,7 +74,7 @@
 
         <div class="user">
           <h5 class="title">持证人电子二维码</h5>
-          <img src>
+          <img :src="$Config.file_url + form.qr_code">
         </div>
       </div>
     </div>

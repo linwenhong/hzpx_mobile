@@ -11,9 +11,9 @@
       </router-link>
     </div>
     <yd-cell-group>
-      <yd-cell-item arrow type="link" href="/certificate">
+      <yd-cell-item arrow type="link" :href="'/cert?id=' + userInfo.id">
         <span slot="left">
-          <img src="/static/images/cert.png">合格证列表
+          <img src="/static/images/cert.png">合格证
         </span>
       </yd-cell-item>
     </yd-cell-group>

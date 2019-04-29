@@ -78,6 +78,17 @@ const routes = new Router({
 });
 
 routes.beforeEach((to, from, next) => {
+  console.log(from, to)
+
+  if (
+    (from.path == '/login' && to.path == '/handle')
+    || (from.path == '/exercises' && to.path == '/login')
+  ) {
+    if (typeof (WeixinJSBridge) != "undefined") {
+      WeixinJSBridge.call('closeWindow')
+    }
+  }
+
   if (Cache.getCache("version") != Config.version) {
     Cache.clearAll(true);
     Cache.setCache("version", Config.version);
@@ -96,7 +107,7 @@ routes.beforeEach((to, from, next) => {
     }
   } else {
     if (Cache.getCache('login') && Cache.getCache('info')) {
-      next('/home/personal')
+      next('/home/exercises')
     }
   }
   next()
