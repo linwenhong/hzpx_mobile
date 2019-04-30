@@ -1,8 +1,8 @@
-const env = 'test';
+const env = 'daoen';
 
 const Config = {
   app_id: 'wxb3a0df66e811b238',
-  version: '1.0.3'
+  version: '1.0.4'
 };
 
 switch (env) {

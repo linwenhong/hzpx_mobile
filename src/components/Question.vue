@@ -79,7 +79,7 @@
 
         <div class="submit" v-if="topics && topics[0]">
           <yd-button v-if="!submitAnswer" type="primary" @click.native="submit" size="large">提交</yd-button>
-          <yd-button v-if="submitAnswer" type="primary" @click.native="next" size="large">下一步</yd-button>
+          <yd-button v-if="submitAnswer" type="primary" @click.native="next" size="large">下一题</yd-button>
         </div>
       </div>
     </yd-layout>

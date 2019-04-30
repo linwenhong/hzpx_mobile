@@ -129,6 +129,9 @@ export default {
         return "-";
       }
     }
+  },
+  mounted() {
+    this.getList();
   }
 };
 </script>

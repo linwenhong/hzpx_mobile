@@ -5,12 +5,14 @@
       <div class="title"><i></i>培训通知</div>
       <p>培训名称: {{item.name}}</p>
       <p>培训时间: {{item.start_time}} 至 {{item.end_time}}</p>
+      <p>培训地址: {{item.address}}</p>
     </div>
 
     <div class="option test" v-for="item of testList" :key="'test_' + item.id">
       <div class="title"><i></i>考试通知</div>
       <p>考试名称: {{item.name}}</p>
       <p>考试时间: {{item.start_time}} 至 {{item.end_time}}</p>
+      <p>考试地址: {{item.address}}</p>
     </div>
   </div>
 </template>
